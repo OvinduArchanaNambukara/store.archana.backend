@@ -65,7 +65,7 @@ export const Electronics: Item[] = [
   },
 ];
 
-export const FruitList: Item[] = [
+export const Fruit: Item[] = [
   {
     id: "0071",
     name: "Apple",
@@ -103,7 +103,7 @@ export const FruitList: Item[] = [
   },
 ];
 
-export const meatList: Item[] = [
+export const Meat: Item[] = [
   {
     id: "0061",
     name: "Bairaha",
@@ -162,7 +162,7 @@ export const meatList: Item[] = [
   },
 ];
 
-export const pharmacyList: Item[] = [
+export const Pharmacy: Item[] = [
   {
     id: "0041",
     name: "Cotton-Wood",
@@ -221,7 +221,7 @@ export const pharmacyList: Item[] = [
   },
 ];
 
-export const vegetableList: Item[] = [
+export const Vegetables: Item[] = [
   {
     id: "0001",
     name: "Carrot",
