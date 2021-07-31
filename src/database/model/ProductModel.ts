@@ -3,8 +3,8 @@ import {Document, model, Schema, SchemaTypes} from "mongoose";
 export interface Product {
   name: string
   image: string
-  current_price: string
-  old_price: string
+  current_price: number
+  old_price: number
 }
 
 export interface ProductModel extends Product, Document {
@@ -24,7 +24,7 @@ export const ProductSchema = new Schema({
     required: true
   },
   current_price: {
-    type: SchemaTypes.String,
+    type: SchemaTypes.Number,
     required: true
   },
   old_price: {
