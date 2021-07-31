@@ -5,9 +5,8 @@ import express, {Application, Response, Request} from "express";
 
 dotenv.config();
 
-const app1: Application = express();
-app1.use(express.json());
-
+const app: Application = express();
+app.use(express.json());
 
 const credentials: Credentials | CredentialsOptions = {
   accessKeyId: `${process.env.AWS_S3_ACCESS_KEY_ID}`,
@@ -16,16 +15,18 @@ const credentials: Credentials | CredentialsOptions = {
 
 AWS.config.update({credentials: credentials, region: process.env.AWS_S3_REGION});
 
-const s3 = new AWS.S3();
+app.post('/getImage', (req: Request, res: Response) => {
+  const s3 = new AWS.S3();
 
-const presignedGETURL = s3.getSignedUrl('getObject', {
-  Bucket: `${process.env.AWS_S3_BUCKET_NAME}`,
-  Key: 'images/categories/electronic.webp',
-  Expires: 100
+  const presignedGETURL = s3.getSignedUrl('getObject', {
+    Bucket: `${process.env.AWS_S3_BUCKET_NAME}`,
+    Key: req.header('aws_image_key'),
+    Expires: 100
+  });
+
+  res.send(presignedGETURL);
 });
 
-console.log(presignedGETURL);
-
-app1.post('/getImage', (req: Request, res: Response) => {
-  res.send(req.header('aws_image_key'));
+app.listen(process.env.PORT, () => {
+  console.log(`App is listen at http://localhost/${process.env.PORT}`);
 });
