@@ -8,12 +8,11 @@ import {productResolver} from "./graphql/resolvers/Product";
 dotenv.config();
 const app: Application = express();
 
+const server = new ApolloServer({
+  typeDefs: typeDefs,
+  resolvers: productResolver,
+});
 connectDatabase().then(() => {
-  const server = new ApolloServer({
-    typeDefs: typeDefs,
-    resolvers: productResolver,
-  });
-
   server.start().then(() => {
     server.applyMiddleware({app, path: "/graphql"});
 

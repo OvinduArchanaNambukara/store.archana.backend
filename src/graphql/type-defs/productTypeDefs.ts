@@ -11,5 +11,6 @@ export const productTypeDefs = gql`
       image: String!
       current_price: Int!
       old_price: Int 
+      key: String!
     }
 `;
