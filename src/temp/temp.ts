@@ -272,3 +272,62 @@ export const Vegetables: Item[] = [
     oldPrice: 85
   },
 ];
+
+export const Foods: Item[] = [
+  {
+    id: "0101",
+    name: "Burger",
+    image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/burger.webp",
+    currentPrice: 75,
+    oldPrice: 85
+
+  },
+  {
+    id: "0102",
+    name: "Cake",
+    image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/cake.webp",
+    currentPrice: 35,
+    oldPrice: null
+
+  },
+  {
+    id: "0103",
+    name: "Ice-Cream",
+    image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/Cone.webp",
+    currentPrice: 35,
+    oldPrice: 45
+
+  },
+  {
+    id: "0104",
+    name: "Cup Cake",
+    image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/cupcake.webp",
+    currentPrice: 35,
+    oldPrice: null
+
+  },
+  {
+    id: "0105",
+    name: "Pie",
+    image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/pie.webp",
+    currentPrice: 35,
+    oldPrice: 45
+
+  },
+  {
+    id: "0106",
+    name: "Pizza",
+    image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/pizza.webp",
+    currentPrice: 35,
+    oldPrice: null
+
+  },
+  {
+    id: "0007",
+    name: "Rice",
+    image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/Rice.webp",
+    currentPrice: 35,
+    oldPrice: 45
+
+  },
+];
