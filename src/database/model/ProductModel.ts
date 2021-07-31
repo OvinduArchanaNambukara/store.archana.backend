@@ -5,6 +5,7 @@ export interface Product {
   image: string
   current_price: number
   old_price: number
+  key: string
 }
 
 export interface ProductModel extends Product, Document {
@@ -30,6 +31,10 @@ export const ProductSchema = new Schema({
   old_price: {
     type: SchemaTypes.Number,
     required: false
+  },
+  key: {
+    type: SchemaTypes.String,
+    required: true
   }
 });
 
