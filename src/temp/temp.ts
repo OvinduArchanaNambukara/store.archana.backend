@@ -22,7 +22,7 @@ export const Electronics: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/electronic/cofee+maker.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/electronic/cofee+maker.webp"
+    key: "images/products/electronic/cofee_maker.webp"
   },
   {
     id: "0503",
@@ -306,7 +306,7 @@ export const Vegetables: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/vegetable/egg+plant.webp",
     currentPrice: 75,
     oldPrice: 85,
-    key: "images/products/vegetable/egg+plant.webp"
+    key: "images/products/vegetable/egg_plant.webp"
   },
 ];
 
