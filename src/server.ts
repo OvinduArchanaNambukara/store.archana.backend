@@ -33,6 +33,17 @@ connectDatabase().then(() => {
       res.send(presignedGETURL);
     });
 
+    app.get('/uploadImage', (req: Request, res: Response) => {
+      const s3 = new AWS.S3();
+      const presignedGETURL = s3.getSignedUrl('putObject', {
+        Bucket: `${process.env.AWS_S3_BUCKET_NAME}`,
+        Key: req.body.key,
+        Expires: 100,
+        ContentType: req.body.content_type
+      });
+      res.send(presignedGETURL);
+    });
+
     app.listen({port: process.env.PORT}, () => {
       console.log(`Apollo Server on http://localhost:${process.env.PORT}/graphql`);
     });
