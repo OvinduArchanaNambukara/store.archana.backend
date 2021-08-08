@@ -5,6 +5,9 @@ import {PharmacyModel} from "../../database/model/PharmacyModel";
 import {MeatModel} from "../../database/model/MeatModel";
 import {ElectronicModel} from "../../database/model/ElectronicsModel";
 import {FruitsModel} from "../../database/model/FruitsModel";
+import {v4 as uuidv4} from 'uuid';
+import {ELECTRONICS, FOOD, FRUITS, MEAT, PHARMACY, VEGETABLES} from "../constants/constants";
+import {ProductType} from "../types/types";
 
 export const productResolver: IResolvers = {
   Query: {
@@ -44,5 +47,60 @@ export const productResolver: IResolvers = {
         category_name: "Fruits", products: fruit
       };
     },
+  },
+
+  Mutation: {
+    addVegetableProduct: async (_,
+                                args: {
+                                  name: string,
+                                  image: string,
+                                  current_price: number,
+                                  old_price: number | null,
+                                  key: string,
+                                  qty: string,
+                                  category: string
+                                }) => {
+      let product = null;
+      const item: ProductType = {
+        _id: uuidv4(),
+        name: args.name,
+        key: args.key,
+        image: args.image,
+        old_price: (args.old_price) ? args.old_price : null,
+        current_price: args.current_price,
+        qty: args.qty
+      }
+
+      switch (args.category) {
+        case VEGETABLES: {
+          product = await VegetableModel.create(item);
+          break;
+        }
+        case FRUITS: {
+          product = await FruitsModel.create(item);
+          break;
+        }
+        case MEAT: {
+          product = await MeatModel.create(item);
+          break;
+        }
+        case PHARMACY: {
+          product = await PharmacyModel.create(item);
+          break;
+        }
+        case ELECTRONICS: {
+          product = await ElectronicModel.create(item);
+          break;
+        }
+        case FOOD: {
+          product = await FoodModel.create(item);
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+      return product;
+    }
   }
 }

@@ -57,7 +57,8 @@ connectDatabase()
               old_price: item.oldPrice,
               current_price: item.currentPrice,
               image: item.image,
-              key: item.key
+              key: item.key,
+              qty: item.qty
             });
             console.log(product);
           }

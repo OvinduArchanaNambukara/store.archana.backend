@@ -5,6 +5,7 @@ export interface Item {
   currentPrice: number
   oldPrice: number | null
   key: string
+  qty: string
 }
 
 export const Electronics: Item[] = [
@@ -14,7 +15,8 @@ export const Electronics: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/electronic/blender.webp",
     currentPrice: 75,
     oldPrice: 85,
-    key: "images/products/electronic/blender.webp"
+    key: "images/products/electronic/blender.webp",
+    qty: "num"
   },
   {
     id: "0502",
@@ -22,7 +24,8 @@ export const Electronics: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/electronic/cofee+maker.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/electronic/cofee_maker.webp"
+    key: "images/products/electronic/cofee_maker.webp",
+    qty: "num"
   },
   {
     id: "0503",
@@ -30,7 +33,8 @@ export const Electronics: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/electronic/iron.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/electronic/iron.webp"
+    key: "images/products/electronic/iron.webp",
+    qty: "num"
   },
   {
     id: "0504",
@@ -38,7 +42,8 @@ export const Electronics: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/electronic/mobile.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/electronic/mobile.webp"
+    key: "images/products/electronic/mobile.webp",
+    qty: "num"
   },
   {
     id: "0505",
@@ -46,7 +51,8 @@ export const Electronics: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/electronic/macbook.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/electronic/macbook.webp"
+    key: "images/products/electronic/macbook.webp",
+    qty: "num"
   },
   {
     id: "0506",
@@ -54,7 +60,8 @@ export const Electronics: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/electronic/microwave.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/electronic/microwave.webp"
+    key: "images/products/electronic/microwave.webp",
+    qty: "num"
   },
   {
     id: "0507",
@@ -62,7 +69,8 @@ export const Electronics: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/electronic/refregirator.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/electronic/refregirator.webp"
+    key: "images/products/electronic/refregirator.webp",
+    qty: "num"
   },
   {
     id: "0587",
@@ -70,7 +78,8 @@ export const Electronics: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/electronic/ricecooker.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/electronic/ricecooker.webp"
+    key: "images/products/electronic/ricecooker.webp",
+    qty: "num"
   },
 ];
 
@@ -81,7 +90,8 @@ export const Fruit: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/fruits/apple.webp",
     currentPrice: 75,
     oldPrice: 85,
-    key: "images/products/fruits/apple.webp"
+    key: "images/products/fruits/apple.webp",
+    qty: "Kg"
   },
   {
     id: "0072",
@@ -89,7 +99,8 @@ export const Fruit: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/fruits/banana.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/fruits/banana.webp"
+    key: "images/products/fruits/banana.webp",
+    qty: "Kg"
   },
   {
     id: "0073",
@@ -97,7 +108,8 @@ export const Fruit: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/fruits/orange.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/fruits/orange.webp"
+    key: "images/products/fruits/orange.webp",
+    qty: "Kg"
   },
   {
     id: "0074",
@@ -105,7 +117,8 @@ export const Fruit: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/fruits/papaya.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/fruits/papaya.webp"
+    key: "images/products/fruits/papaya.webp",
+    qty: "Kg"
   },
   {
     id: "0075",
@@ -113,7 +126,8 @@ export const Fruit: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/fruits/strawberry.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/fruits/strawberry.webp"
+    key: "images/products/fruits/strawberry.webp",
+    qty: "Kg"
   },
 ];
 
@@ -124,7 +138,8 @@ export const Meat: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/meat/bairaha.webp",
     currentPrice: 75,
     oldPrice: 85,
-    key: "images/products/meat/bairaha.webp"
+    key: "images/products/meat/bairaha.webp",
+    qty: "Kg"
   },
   {
     id: "0062",
@@ -132,7 +147,8 @@ export const Meat: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/meat/chickendrumstick.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/meat/chickendrumstick.webp"
+    key: "images/products/meat/chickendrumstick.webp",
+    qty: "Kg"
   },
   {
     id: "0063",
@@ -140,7 +156,8 @@ export const Meat: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/meat/chickenwings.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/meat/chickenwings.webp"
+    key: "images/products/meat/chickenwings.webp",
+    qty: "Kg"
   },
   {
     id: "0064",
@@ -148,7 +165,8 @@ export const Meat: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/meat/hurulla.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/meat/hurulla.webp"
+    key: "images/products/meat/hurulla.webp",
+    qty: "Kg"
   },
   {
     id: "0065",
@@ -156,7 +174,8 @@ export const Meat: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/meat/linna.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/meat/linna.webp"
+    key: "images/products/meat/linna.webp",
+    qty: "Kg"
   },
   {
     id: "0082",
@@ -164,7 +183,8 @@ export const Meat: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/meat/prawns.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/meat/prawns.webp"
+    key: "images/products/meat/prawns.webp",
+    qty: "Kg"
   },
   {
     id: "0083",
@@ -172,7 +192,8 @@ export const Meat: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/meat/paraw.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/meat/paraw.webp"
+    key: "images/products/meat/paraw.webp",
+    qty: "Kg"
   },
   {
     id: "0084",
@@ -180,7 +201,8 @@ export const Meat: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/meat/tuna.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/meat/tuna.webp"
+    key: "images/products/meat/tuna.webp",
+    qty: "Kg"
   },
 ];
 
@@ -191,7 +213,8 @@ export const Pharmacy: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/phamasy/cotton.webp",
     currentPrice: 75,
     oldPrice: 85,
-    key: "images/products/phamasy/cotton.webp"
+    key: "images/products/phamasy/cotton.webp",
+    qty: "num"
   },
   {
     id: "0042",
@@ -199,7 +222,8 @@ export const Pharmacy: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/phamasy/k95.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/phamasy/k95.webp"
+    key: "images/products/phamasy/k95.webp",
+    qty: "num"
   },
   {
     id: "0043",
@@ -207,7 +231,8 @@ export const Pharmacy: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/phamasy/piriton.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/phamasy/piriton.webp"
+    key: "images/products/phamasy/piriton.webp",
+    qty: "num"
   },
   {
     id: "0044",
@@ -215,7 +240,8 @@ export const Pharmacy: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/phamasy/plaster.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/phamasy/plaster.webp"
+    key: "images/products/phamasy/plaster.webp",
+    qty: "num"
   },
   {
     id: "0045",
@@ -223,7 +249,8 @@ export const Pharmacy: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/phamasy/asamodagam.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/phamasy/asamodagam.webp"
+    key: "images/products/phamasy/asamodagam.webp",
+    qty: "num"
   },
   {
     id: "0442",
@@ -231,7 +258,8 @@ export const Pharmacy: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/phamasy/panadol.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/phamasy/panadol.webp"
+    key: "images/products/phamasy/panadol.webp",
+    qty: "num"
   },
   {
     id: "0443",
@@ -239,7 +267,8 @@ export const Pharmacy: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/phamasy/sidalepa.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/phamasy/sidalepa.webp"
+    key: "images/products/phamasy/sidalepa.webp",
+    qty: "num"
   },
   {
     id: "0444",
@@ -247,7 +276,8 @@ export const Pharmacy: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/phamasy/sanitizer.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/phamasy/sanitizer.webp"
+    key: "images/products/phamasy/sanitizer.webp",
+    qty: "num"
   },
 ];
 
@@ -258,7 +288,8 @@ export const Vegetables: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/vegetable/carrot.webp",
     currentPrice: 75,
     oldPrice: 85,
-    key: "images/products/vegetable/carrot.webp"
+    key: "images/products/vegetable/carrot.webp",
+    qty: "Kg"
   },
   {
     id: "0002",
@@ -266,7 +297,8 @@ export const Vegetables: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/vegetable/cabbage.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/vegetable/cabbage.webp"
+    key: "images/products/vegetable/cabbage.webp",
+    qty: "Kg"
   },
   {
     id: "0003",
@@ -274,7 +306,8 @@ export const Vegetables: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/vegetable/garlic.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/vegetable/garlic.webp"
+    key: "images/products/vegetable/garlic.webp",
+    qty: "Kg"
   },
   {
     id: "0004",
@@ -282,7 +315,8 @@ export const Vegetables: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/vegetable/leaks.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/vegetable/leaks.webp"
+    key: "images/products/vegetable/leaks.webp",
+    qty: "Kg"
   },
   {
     id: "0005",
@@ -290,7 +324,8 @@ export const Vegetables: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/vegetable/onion.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/vegetable/onion.webp"
+    key: "images/products/vegetable/onion.webp",
+    qty: "Kg"
   },
   {
     id: "0006",
@@ -298,7 +333,8 @@ export const Vegetables: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/vegetable/potato.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/vegetable/potato.webp"
+    key: "images/products/vegetable/potato.webp",
+    qty: "Kg"
   },
   {
     id: "0007",
@@ -306,7 +342,8 @@ export const Vegetables: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/vegetable/egg+plant.webp",
     currentPrice: 75,
     oldPrice: 85,
-    key: "images/products/vegetable/egg_plant.webp"
+    key: "images/products/vegetable/egg_plant.webp",
+    qty: "Kg"
   },
 ];
 
@@ -317,7 +354,8 @@ export const Foods: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/burger.webp",
     currentPrice: 75,
     oldPrice: 85,
-    key: "images/products/food/burger.webp"
+    key: "images/products/food/burger.webp",
+    qty: "num"
   },
   {
     id: "0102",
@@ -325,7 +363,8 @@ export const Foods: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/cake.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/food/cake.webp"
+    key: "images/products/food/cake.webp",
+    qty: "num"
   },
   {
     id: "0103",
@@ -333,7 +372,8 @@ export const Foods: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/Cone.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/food/Cone.webp"
+    key: "images/products/food/Cone.webp",
+    qty: "num"
   },
   {
     id: "0104",
@@ -341,7 +381,8 @@ export const Foods: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/cupcake.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/food/cupcake.webp"
+    key: "images/products/food/cupcake.webp",
+    qty: "num"
   },
   {
     id: "0105",
@@ -349,7 +390,8 @@ export const Foods: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/pie.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/food/pie.webp"
+    key: "images/products/food/pie.webp",
+    qty: "num"
   },
   {
     id: "0106",
@@ -357,7 +399,8 @@ export const Foods: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/pizza.webp",
     currentPrice: 35,
     oldPrice: null,
-    key: "images/products/food/pizza.webp"
+    key: "images/products/food/pizza.webp",
+    qty: "num"
   },
   {
     id: "0007",
@@ -365,6 +408,7 @@ export const Foods: Item[] = [
     image: "https://s3.amazonaws.com/bitsandbytes.images/images/products/food/Rice.webp",
     currentPrice: 35,
     oldPrice: 45,
-    key: "images/products/food/Rice.webp"
+    key: "images/products/food/Rice.webp",
+    qty: "num"
   },
 ];
