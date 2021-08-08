@@ -10,6 +10,10 @@ export const productTypeDefs = gql`
       getVegetableProducts: Category!
     }
     
+    type Mutation{
+      addVegetableProduct(name: String!, image: String!, current_price: Int!, old_price: Int , key: String!, qty: String!, category: String!): Product!
+    }
+    
     type Category {
       category_name: String!
       products: [Product!]!
@@ -22,5 +26,6 @@ export const productTypeDefs = gql`
       current_price: Int!
       old_price: Int 
       key: String!
+      qty: String!
     }
 `;

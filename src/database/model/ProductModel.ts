@@ -6,6 +6,7 @@ export interface Product {
   current_price: number
   old_price: number
   key: string
+  qty: string
 }
 
 export interface ProductModel extends Product, Document {
@@ -33,6 +34,10 @@ export const ProductSchema = new Schema({
     required: false
   },
   key: {
+    type: SchemaTypes.String,
+    required: true
+  },
+  qty: {
     type: SchemaTypes.String,
     required: true
   }
