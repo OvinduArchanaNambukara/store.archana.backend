@@ -13,6 +13,7 @@ export const productTypeDefs = gql`
     type Mutation{
       addProduct(name: String!, image: String!, current_price: Int!, old_price: Int , key: String!, qty: String!, category: String!): Product!
       updateProduct(id: String!, name: String!, image: String!, current_price: Int!, old_price: Int , key: String!, qty: String!, category: String!): Product!
+      deleteProduct(id: String!, category: String!): Product!
     }
     
     type Category {
