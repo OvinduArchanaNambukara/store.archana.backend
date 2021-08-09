@@ -156,6 +156,43 @@ export const productResolver: IResolvers = {
         }
       }
       return product;
+    },
+    deleteProduct: async (_,
+                          args: {
+                            id: string,
+                            category: string
+                          }) => {
+      let product = null
+      switch (args.category) {
+        case VEGETABLES: {
+          product = await VegetableModel.findOneAndDelete({_id: args.id});
+          break;
+        }
+        case FRUITS: {
+          product = await FruitsModel.findOneAndDelete({_id: args.id});
+          break;
+        }
+        case MEAT: {
+          product = await MeatModel.findOneAndDelete({_id: args.id});
+          break;
+        }
+        case PHARMACY: {
+          product = await PharmacyModel.findOneAndDelete({_id: args.id});
+          break;
+        }
+        case ELECTRONICS: {
+          product = await ElectronicModel.findOneAndDelete({_id: args.id});
+          break;
+        }
+        case FOOD: {
+          product = await FoodModel.findOneAndDelete({_id: args.id});
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+      return product;
     }
   }
 }

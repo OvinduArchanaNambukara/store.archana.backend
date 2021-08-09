@@ -2,7 +2,7 @@ import express, {Application, Request, Response} from "express";
 import dotenv from "dotenv";
 import {connectDatabase} from "./database/connection/connection";
 import {ApolloServer} from "apollo-server-express";
-import {typeDefs} from "./graphql/type-defs/typeDefs";
+import {rootTypeDefs} from "./graphql/type-defs/RootTypeDefs";
 import {productResolver} from "./graphql/resolvers/Product";
 import AWS from "aws-sdk";
 import {credentials} from "./aws";
@@ -15,7 +15,7 @@ app.use(express.json());
 AWS.config.update({credentials: credentials, region: process.env.AWS_S3_REGION});
 
 const server = new ApolloServer({
-  typeDefs: typeDefs,
+  typeDefs: rootTypeDefs,
   resolvers: productResolver,
 });
 
