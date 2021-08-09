@@ -1,9 +1,9 @@
 export interface ProductType {
-  _id: string
+  _id?: string
   name: string
   image: string
   current_price: number
-  old_price: number | null
+  old_price: number | null | undefined
   key: string
   qty: string
 }

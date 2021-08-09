@@ -50,16 +50,16 @@ export const productResolver: IResolvers = {
   },
 
   Mutation: {
-    addVegetableProduct: async (_,
-                                args: {
-                                  name: string,
-                                  image: string,
-                                  current_price: number,
-                                  old_price: number | null,
-                                  key: string,
-                                  qty: string,
-                                  category: string
-                                }) => {
+    addProduct: async (_,
+                       args: {
+                         name: string,
+                         image: string,
+                         current_price: number,
+                         old_price: number | null,
+                         key: string,
+                         qty: string,
+                         category: string
+                       }) => {
       let product = null;
       const item: ProductType = {
         _id: uuidv4(),
@@ -94,6 +94,61 @@ export const productResolver: IResolvers = {
         }
         case FOOD: {
           product = await FoodModel.create(item);
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+      return product;
+    },
+    updateProduct: async (_,
+                          args: {
+                            id: string
+                            name: string,
+                            image: string,
+                            current_price: number,
+                            old_price: number | null,
+                            key: string,
+                            qty: string,
+                            category: string
+                          }) => {
+      let product = null;
+      const item = {
+        name: args.name,
+        key: args.key,
+        image: args.image,
+        old_price: (args.old_price) ? args.old_price : undefined,
+        current_price: args.current_price,
+        qty: args.qty
+      }
+      const options = {
+        new: true
+      }
+
+      switch (args.category) {
+        case VEGETABLES: {
+          product = await VegetableModel.findOneAndUpdate({_id: args.id}, item, options);
+          break;
+        }
+        case FRUITS: {
+          product = await FruitsModel.findOneAndUpdate({_id: args.id}, item, options);
+          break;
+        }
+        case MEAT: {
+          product = await MeatModel.findOneAndUpdate({_id: args.id}, item, options);
+          break;
+        }
+        case PHARMACY: {
+          product = await PharmacyModel.findOneAndUpdate({_id: args.id}, item, options);
+          break;
+        }
+        case ELECTRONICS: {
+          product = await ElectronicModel.findOneAndUpdate({_id: args.id}, item, options);
+          break;
+        }
+        case FOOD: {
+          product = await FoodModel.findOneAndUpdate({_id: args.id}, item, options);
           break;
         }
         default: {
