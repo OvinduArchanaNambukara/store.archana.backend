@@ -9,6 +9,7 @@ import {PharmacyModel} from "../database/model/PharmacyModel";
 import {MeatModel} from "../database/model/MeatModel";
 import {FoodModel} from "../database/model/FoodModel";
 import {Model} from "mongoose";
+import {OrderModel} from "../database/model/OrderModel";
 
 const app: Application = express();
 app.use(express.json());
@@ -63,6 +64,60 @@ connectDatabase()
             console.log(product);
           }
         });
+      });
+
+      app.post('/add/orders', async (req: Request, res: Response) => {
+        for (let i = 0; i < 2; i++) {
+          const order = await OrderModel.create({
+            _id: uuidv4(),
+            user_id: "Ovinas",
+            order_list: [
+              {
+                _id: "dsdsddsdsd",
+                name: "sksks",
+                unit_price: "10kg",
+                qty: "45",
+                price: 45000
+              }, {
+                _id: "dsdsddscssdsd",
+                name: "sksks",
+                unit_price: "10kg",
+                qty: "45",
+                price: 12
+              },
+              {
+                _id: "dssasdsddsdsd",
+                name: "sksks",
+                unit_price: "10kg",
+                qty: "45",
+                price: 12
+              }
+            ],
+            status: true,
+            date: "new Date()",
+            discount: 45,
+            sub_total: 455,
+            shipping: {
+              city: "asas",
+              country: "kskks",
+              address: "asas",
+              instructions: "asasas",
+              postal_code: 555,
+              full_name: 'kaskak',
+              tel: "454845"
+            },
+            delivery: {
+              full_name: "aksaas",
+              country: "asas",
+              city: "asas",
+              postal_code: 1545,
+              address: "asasasas",
+              email: "jsh@gna",
+              tel: "544445"
+            }
+          });
+          console.log(order)
+        }
       });
 
       app.listen(process.env.PORT, () => {
