@@ -1,4 +1,4 @@
-import {Document, model, Schema, SchemaTypes} from "mongoose";
+import {Document, Schema, SchemaTypes} from "mongoose";
 
 export interface Product {
   name: string
@@ -43,4 +43,3 @@ export const ProductSchema = new Schema({
   }
 });
 
-export const ProductModel = model<ProductModel>("vegetables", ProductSchema);

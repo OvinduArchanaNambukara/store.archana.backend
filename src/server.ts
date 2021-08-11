@@ -3,9 +3,9 @@ import dotenv from "dotenv";
 import {connectDatabase} from "./database/connection/connection";
 import {ApolloServer} from "apollo-server-express";
 import {rootTypeDefs} from "./graphql/type-defs/RootTypeDefs";
-import {productResolver} from "./graphql/resolvers/Product";
 import AWS from "aws-sdk";
 import {credentials} from "./aws";
+import {rootReducer} from "./graphql/resolvers/RootReducer";
 
 dotenv.config();
 const app: Application = express();
@@ -16,7 +16,7 @@ AWS.config.update({credentials: credentials, region: process.env.AWS_S3_REGION})
 
 const server = new ApolloServer({
   typeDefs: rootTypeDefs,
-  resolvers: productResolver,
+  resolvers: rootReducer,
 });
 
 connectDatabase().then(() => {
@@ -51,7 +51,5 @@ connectDatabase().then(() => {
 }).catch(() => {
   console.log("Server error");
 });
-
-
 
 
