@@ -67,7 +67,7 @@ connectDatabase()
       });
 
       app.post('/add/orders', async (req: Request, res: Response) => {
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 6; i++) {
           const order = await OrderModel.create({
             _id: uuidv4(),
             user_id: "Ovinas",
@@ -96,6 +96,7 @@ connectDatabase()
             status: true,
             date: "new Date()",
             discount: 45,
+            payment_method: "cash",
             sub_total: 455,
             shipping: {
               city: "asas",

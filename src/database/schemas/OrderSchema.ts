@@ -32,9 +32,13 @@ export const OrderSchema = new Schema({
     type: SchemaTypes.Boolean,
     required: true
   },
+  payment_method: {
+    type: SchemaTypes.String,
+    required: true
+  },
   delivery: {
     type: DeliverySchema,
-    required: false
+    required: true
   },
   shipping: {
     type: ShippingSchema,
