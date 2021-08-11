@@ -3,7 +3,7 @@ import {OrderSchema} from "../schemas/OrderSchema";
 
 export interface Order {
   user_id: string
-  last_name: string
+  sub_total: string
   order_list: {
     _id: string
     name: string
@@ -13,6 +13,7 @@ export interface Order {
   }[]
   date: string
   discount: number
+  payment_method: string
   status: boolean
   delivery: {
     address: string
@@ -22,7 +23,7 @@ export interface Order {
     country: string
     email: string
     tel: string
-  } | null
+  }
   shipping: {
     address: string
     full_name: string
