@@ -4,7 +4,7 @@ export const orderTypeDefs = gql`
   type Query{
       getAllPendingOrders: [Order]
       getAllCompletedOrders: [Order]
-      getUserOrders(user_id: String!): [Order]
+      getUserOrders: [Order]
     }
 
   type Mutation{
@@ -55,7 +55,6 @@ export const orderTypeDefs = gql`
   }
   
   input CreateOrder{
-      user_id: String!
       date: String!
       discount: Int!
       sub_total: Int!

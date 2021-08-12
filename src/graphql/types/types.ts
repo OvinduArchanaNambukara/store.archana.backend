@@ -9,7 +9,6 @@ export interface ProductType {
 }
 
 export interface CreateOrderType {
-  user_id: string
   date: string
   discount: number
   sub_total: number
