@@ -6,6 +6,7 @@ import {rootTypeDefs} from "./graphql/type-defs/RootTypeDefs";
 import AWS from "aws-sdk";
 import {credentials} from "./aws";
 import {rootReducer} from "./graphql/resolvers/RootReducer";
+import {getUser} from "./jwt";
 
 dotenv.config();
 const app: Application = express();
@@ -17,6 +18,13 @@ AWS.config.update({credentials: credentials, region: process.env.AWS_S3_REGION})
 const server = new ApolloServer({
   typeDefs: rootTypeDefs,
   resolvers: rootReducer,
+  context: ({req}) => {
+    const token: string | undefined = req.headers.authorization;
+    if (token) {
+      const result = getUser(token);
+      return result;
+    }
+  }
 });
 
 connectDatabase().then(() => {
@@ -53,3 +61,4 @@ connectDatabase().then(() => {
 });
 
 
+getUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMWM1NmY1NGEtMzFiYS00MGQyLWIzM2QtNmYxOTk5ZGUxZTg2IiwiaWF0IjoxNjI4NzEyNDUxfQ.hE9qfS0u9qabJlMVb_Pbn742EJSC8AAWxe6ysPeqYaU");

@@ -5,7 +5,7 @@ export const AdminSchema = new Schema({
     type: SchemaTypes.String,
     required: true
   },
-  user_id: {
+  first_name: {
     type: SchemaTypes.String,
     required: true
   },
