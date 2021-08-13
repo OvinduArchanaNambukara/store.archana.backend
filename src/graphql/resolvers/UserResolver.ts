@@ -12,7 +12,7 @@ export const userResolver: IResolvers = {
       const findAdmin = await AdminModel.findOne({email: args.email});
       if (findUser) {
         if (findUser.password === args.password) {
-          return jwt.sign({user_id: findUser._id, admin: false}, 'shhhhh',);
+          return jwt.sign({user_id: findUser._id, admin: false}, `${process.env.JWT_SECRET_ID}`);
         }
         throw new AuthenticationError("sign in failed");
       } else {
