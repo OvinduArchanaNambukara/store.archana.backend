@@ -5,7 +5,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             resolve(value);
         });
     }
-
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) {
             try {
@@ -136,7 +135,7 @@ exports.userResolver = {
                                     return [2 /*return*/, jsonwebtoken_1.default.sign({
                                         user_id: findUser._id,
                                         admin: false
-                                    }, 'shhhhh')];
+                                    }, "" + process.env.JWT_SECRET_ID)];
                                 }
                                 throw new apollo_server_express_1.AuthenticationError("sign in failed");
                             } else {
