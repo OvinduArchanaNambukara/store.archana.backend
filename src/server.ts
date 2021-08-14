@@ -7,10 +7,12 @@ import AWS from "aws-sdk";
 import {credentials} from "./aws";
 import {rootReducer} from "./graphql/resolvers/RootReducer";
 import {getUser} from "./jwt";
+import cors from "cors";
 
 dotenv.config();
 const app: Application = express();
 app.use(express.json());
+app.use(cors());
 
 AWS.config.update({credentials: credentials, region: process.env.AWS_S3_REGION});
 
