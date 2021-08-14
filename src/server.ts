@@ -12,7 +12,6 @@ dotenv.config();
 const app: Application = express();
 app.use(express.json());
 
-
 AWS.config.update({credentials: credentials, region: process.env.AWS_S3_REGION});
 
 const server = new ApolloServer({
@@ -41,7 +40,7 @@ connectDatabase().then(() => {
       res.send(presignedGETURL);
     });
 
-    app.get('/uploadImage', (req: Request, res: Response) => {
+    app.post('/uploadImage', (req: Request, res: Response) => {
       const s3 = new AWS.S3();
       const presignedGETURL = s3.getSignedUrl('putObject', {
         Bucket: `${process.env.AWS_S3_BUCKET_NAME}`,
@@ -52,6 +51,20 @@ connectDatabase().then(() => {
       res.send(presignedGETURL);
     });
 
+    app.delete('/deleteImage', (req: Request, res: Response) => {
+      const s3 = new AWS.S3();
+      s3.deleteObject({
+        Bucket: `${process.env.AWS_S3_BUCKET_NAME}`,
+        Key: req.body.key,
+      }, (err, data) => {
+        if (err) {
+          res.send(err);
+        } else {
+          res.send(data);
+        }
+      });
+    });
+
     app.listen({port: process.env.PORT}, () => {
       console.log(`Apollo Server on http://localhost:${process.env.PORT}/graphql`);
     });
@@ -60,5 +73,3 @@ connectDatabase().then(() => {
   console.log("Server error");
 });
 
-
-getUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMWM1NmY1NGEtMzFiYS00MGQyLWIzM2QtNmYxOTk5ZGUxZTg2IiwiaWF0IjoxNjI4NzEyNDUxfQ.hE9qfS0u9qabJlMVb_Pbn742EJSC8AAWxe6ysPeqYaU");
