@@ -12,9 +12,11 @@ var aws_sdk_1 = __importDefault(require("aws-sdk"));
 var aws_1 = require("./aws");
 var RootReducer_1 = require("./graphql/resolvers/RootReducer");
 var jwt_1 = require("./jwt");
+var cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
 var app = express_1.default();
 app.use(express_1.default.json());
+app.use(cors_1.default());
 aws_sdk_1.default.config.update({credentials: aws_1.credentials, region: process.env.AWS_S3_REGION});
 var server = new apollo_server_express_1.ApolloServer({
     typeDefs: RootTypeDefs_1.rootTypeDefs,
