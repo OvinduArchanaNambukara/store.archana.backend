@@ -40,7 +40,7 @@ connection_1.connectDatabase().then(function () {
             });
             res.send(presignedGETURL);
         });
-        app.get('/uploadImage', function (req, res) {
+        app.post('/uploadImage', function (req, res) {
             var s3 = new aws_sdk_1.default.S3();
             var presignedGETURL = s3.getSignedUrl('putObject', {
                 Bucket: "" + process.env.AWS_S3_BUCKET_NAME,
@@ -50,6 +50,19 @@ connection_1.connectDatabase().then(function () {
             });
             res.send(presignedGETURL);
         });
+        app.delete('/deleteImage', function (req, res) {
+            var s3 = new aws_sdk_1.default.S3();
+            s3.deleteObject({
+                Bucket: "" + process.env.AWS_S3_BUCKET_NAME,
+                Key: req.body.key,
+            }, function (err, data) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(data);
+                }
+            });
+        });
         app.listen({port: process.env.PORT}, function () {
             console.log("Apollo Server on http://localhost:" + process.env.PORT + "/graphql");
         });
@@ -57,4 +70,3 @@ connection_1.connectDatabase().then(function () {
 }).catch(function () {
     console.log("Server error");
 });
-jwt_1.getUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMWM1NmY1NGEtMzFiYS00MGQyLWIzM2QtNmYxOTk5ZGUxZTg2IiwiaWF0IjoxNjI4NzEyNDUxfQ.hE9qfS0u9qabJlMVb_Pbn742EJSC8AAWxe6ysPeqYaU");
