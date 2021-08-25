@@ -23,10 +23,6 @@ exports.ShippingSchema = new mongoose_1.Schema({
         type: mongoose_1.SchemaTypes.String,
         required: true
     },
-    instructions: {
-        type: mongoose_1.SchemaTypes.String,
-        required: true
-    },
     tel: {
         type: mongoose_1.SchemaTypes.String,
         required: true

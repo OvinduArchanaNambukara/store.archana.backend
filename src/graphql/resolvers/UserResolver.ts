@@ -12,15 +12,21 @@ export const userResolver: IResolvers = {
       const findAdmin = await AdminModel.findOne({email: args.email});
       if (findUser) {
         if (findUser.password === args.password) {
-          return jwt.sign({user_id: findUser._id, admin: false}, `${process.env.JWT_SECRET_ID}`);
+          return {
+            token: jwt.sign({user_id: findUser._id, admin: false}, `${process.env.JWT_SECRET_ID}`),
+            role: 'user'
+          };
         }
         throw new AuthenticationError("sign in failed");
       } else {
         if (findAdmin) {
           if (findAdmin.password === args.password) {
-            return jwt.sign({user_id: findAdmin._id, admin: true}, `${process.env.JWT_SECRET_ID}`, {
-              expiresIn: '12h'
-            });
+            return {
+              token: jwt.sign({user_id: findAdmin._id, admin: true}, `${process.env.JWT_SECRET_ID}`, {
+                expiresIn: '12h'
+              }),
+              role: 'admin'
+            }
           }
           throw new AuthenticationError("sign in failed");
         } else {
@@ -38,9 +44,12 @@ export const userResolver: IResolvers = {
             password: args.password
           }
       );
-      return jwt.sign({user_id: user._id, isAdmin: false}, `${process.env.JWT_SECRET_ID}`, {
-        expiresIn: '12h'
-      });
+      return {
+        token: jwt.sign({user_id: user._id, isAdmin: false}, `${process.env.JWT_SECRET_ID}`, {
+          expiresIn: '12h'
+        }),
+        role: 'user'
+      }
     }
   }
 }

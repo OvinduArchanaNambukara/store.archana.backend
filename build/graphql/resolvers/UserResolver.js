@@ -132,21 +132,27 @@ exports.userResolver = {
                             findAdmin = _a.sent();
                             if (findUser) {
                                 if (findUser.password === args.password) {
-                                    return [2 /*return*/, jsonwebtoken_1.default.sign({
-                                        user_id: findUser._id,
-                                        admin: false
-                                    }, "" + process.env.JWT_SECRET_ID)];
+                                    return [2 /*return*/, {
+                                        token: jsonwebtoken_1.default.sign({
+                                            user_id: findUser._id,
+                                            admin: false
+                                        }, "" + process.env.JWT_SECRET_ID),
+                                        role: 'user'
+                                    }];
                                 }
                                 throw new apollo_server_express_1.AuthenticationError("sign in failed");
                             } else {
                                 if (findAdmin) {
                                     if (findAdmin.password === args.password) {
-                                        return [2 /*return*/, jsonwebtoken_1.default.sign({
-                                            user_id: findAdmin._id,
-                                            admin: true
-                                        }, "" + process.env.JWT_SECRET_ID, {
-                                            expiresIn: '12h'
-                                        })];
+                                        return [2 /*return*/, {
+                                            token: jsonwebtoken_1.default.sign({
+                                                user_id: findAdmin._id,
+                                                admin: true
+                                            }, "" + process.env.JWT_SECRET_ID, {
+                                                expiresIn: '12h'
+                                            }),
+                                            role: 'admin'
+                                        }];
                                     }
                                     throw new apollo_server_express_1.AuthenticationError("sign in failed");
                                 } else {
@@ -173,12 +179,15 @@ exports.userResolver = {
                             })];
                         case 1:
                             user = _a.sent();
-                            return [2 /*return*/, jsonwebtoken_1.default.sign({
-                                user_id: user._id,
-                                isAdmin: false
-                            }, "" + process.env.JWT_SECRET_ID, {
-                                expiresIn: '12h'
-                            })];
+                            return [2 /*return*/, {
+                                token: jsonwebtoken_1.default.sign({
+                                    user_id: user._id,
+                                    isAdmin: false
+                                }, "" + process.env.JWT_SECRET_ID, {
+                                    expiresIn: '12h'
+                                }),
+                                role: 'user'
+                            }];
                     }
                 });
             });
