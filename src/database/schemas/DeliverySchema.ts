@@ -29,4 +29,8 @@ export const DeliverySchema = new Schema({
     type: SchemaTypes.String,
     required: true
   },
+  instructions: {
+    type: SchemaTypes.String,
+    required: false
+  },
 });

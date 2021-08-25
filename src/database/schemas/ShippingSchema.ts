@@ -21,10 +21,6 @@ export const ShippingSchema = new Schema({
     type: SchemaTypes.String,
     required: true
   },
-  instructions: {
-    type: SchemaTypes.String,
-    required: true
-  },
   tel: {
     type: SchemaTypes.String,
     required: true

@@ -80,6 +80,7 @@ export const orderTypeDefs = gql`
       postal_code: Int!
       email: String!
       tel: String!
+      instructions: String
   }
   
   input CreateShipping{
@@ -88,7 +89,6 @@ export const orderTypeDefs = gql`
       city: String!
       country: String!
       postal_code: Int!
-      instructions: String
       tel: String!
   }
 `;
