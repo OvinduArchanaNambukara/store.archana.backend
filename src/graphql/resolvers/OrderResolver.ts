@@ -22,9 +22,16 @@ export const orderResolver: IResolvers = {
         throw new ForbiddenError("No access, Only admin");
       }
     },
-    getUserOrders: async (_, args: {}, context: { user_id: string }) => {
+    getUserPendingOrders: async (_, args: {}, context: { user_id: string }) => {
       if (context.user_id) {
-        const orders = await OrderModel.find({user_id: context.user_id});
+        const orders = await OrderModel.find({user_id: context.user_id, status: false});
+        return orders;
+      }
+      throw new ForbiddenError("No access");
+    },
+    getUserCompletedOrders: async (_, args: {}, context: { user_id: string }) => {
+      if (context.user_id) {
+        const orders = await OrderModel.find({user_id: context.user_id, status: true});
         return orders;
       }
       throw new ForbiddenError("No access");

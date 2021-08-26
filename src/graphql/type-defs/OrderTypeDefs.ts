@@ -4,7 +4,8 @@ export const orderTypeDefs = gql`
   type Query{
       getAllPendingOrders: [Order]
       getAllCompletedOrders: [Order]
-      getUserOrders: [Order]
+      getUserPendingOrders: [Order]
+      getUserCompletedOrders: [Order]
     }
 
   type Mutation{
