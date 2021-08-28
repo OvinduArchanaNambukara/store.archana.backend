@@ -147,14 +147,37 @@ exports.orderResolver = {
                 });
             });
         },
-        getUserOrders: function (_, args, context) {
+        getUserPendingOrders: function (_, args, context) {
             return __awaiter(void 0, void 0, void 0, function () {
                 var orders;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
                             if (!context.user_id) return [3 /*break*/, 2];
-                            return [4 /*yield*/, OrderModel_1.OrderModel.find({user_id: context.user_id})];
+                            return [4 /*yield*/, OrderModel_1.OrderModel.find({
+                                user_id: context.user_id,
+                                status: false
+                            })];
+                        case 1:
+                            orders = _a.sent();
+                            return [2 /*return*/, orders];
+                        case 2:
+                            throw new apollo_server_express_1.ForbiddenError("No access");
+                    }
+                });
+            });
+        },
+        getUserCompletedOrders: function (_, args, context) {
+            return __awaiter(void 0, void 0, void 0, function () {
+                var orders;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            if (!context.user_id) return [3 /*break*/, 2];
+                            return [4 /*yield*/, OrderModel_1.OrderModel.find({
+                                user_id: context.user_id,
+                                status: true
+                            })];
                         case 1:
                             orders = _a.sent();
                             return [2 /*return*/, orders];

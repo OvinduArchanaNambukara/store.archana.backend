@@ -41,6 +41,7 @@ export const orderTypeDefs = gql`
       city: String!
       country: String!
       postal_code: Int!
+      instructions: String
       email: String!
       tel: String!
   }
@@ -51,7 +52,6 @@ export const orderTypeDefs = gql`
       city: String!
       country: String!
       postal_code: Int!
-      instructions: String
       tel: String!
   }
   
